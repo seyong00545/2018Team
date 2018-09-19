@@ -261,7 +261,7 @@ def object_detection(img):
     print("보낸 문자 :" + resultString)
 ```
 입력 값으로 이미지를 넣어주며, 출력 값으로 이미지 속 추출 된 객체를 Client에게 보내주거나, 출력합니다.
-
+<img src="./Img/object.JPG">
 #### 텍스트 인식 [Tesseract OCR Engine]
 기본 엔진을 tesseract OCR로 하며, 이미지 속 텍스트의 인식률을 높이기 위해 전처리 과정으로 흑백필터, 노이즈 제거, AdaptiveThreshold 등을 거칩니다.
   ##### 설치 방법
@@ -288,7 +288,7 @@ text = pytesseract.image_to_string(im, lang='eng')
 print(type(text))
 print(text)
 ```
-
+<img src="./Img/text.JPG">
   
 
 
@@ -347,7 +347,7 @@ def emotion_detection(img):
     print("보낸 문자 :" + emotion_text)
 	```
 입력 값으로 이미지를 입력하며, 출력 값으로는 사진 속 얼굴을 추출 후  얼굴표정을 비교하여 감정을 분석 후 결과를  client에게 보내거나, 출력합니다.
-
+<img src="./Img/Emotion.JPG">
 
 ### API
 #### Text to Speech-[Naver Clova API](https://developers.naver.com/main/ )
