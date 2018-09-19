@@ -1,4 +1,4 @@
-<img src="C:/Users/LGPC/Documents/2018Team/Img/glasses.png" height="75">
+<img src="./Img/glasses.png">
 
 # **프로젝트 소개**
 
@@ -7,16 +7,15 @@
    * 부정적 시선의 불편함을 느끼는 시각장애인들을 위해 앞에 있는 사람의 감정을 인식하여 음성으로 알려줌으로써 눈이 보이지 않는 단점을 보완합니다.
 
 #### 시스템 구성도
-<img src="C:/Users/LGPC/Documents/2018Team/Img/시스템 구성도.png" height="75">
+<img src="./Img/시스템 구성도.png">
 
 #### **작품 기능**
   *  객체(사물) 인식 : 이미지 및 동영상 촬영을 통한 검출 된 사물에 대한 정보 제공
   *  텍스트 인식 : 이미지에서 텍스트를 추출한 후 음성으로 변환하여 제공
   *  감정 인식  : 얼굴을 검출한 경우, 대상에 대한 감정을 파악한 뒤 정보 제공
 
-
-
-
+</br>
+</br>
 
 # Viewtiful Eyes 시작하기
 
@@ -24,8 +23,7 @@
 * #### [서버운용](#서버 운용)
 * #### [사용방법](#사용 방법)
 
-
-
+</br>
 
 
 ## 설치 방법 및 실행 환경 
@@ -140,37 +138,58 @@ mplayer -ao [파일명]
   윈도우 운영체제는 window 10 Pro 버전을 사용합니다.
 
 #### Anaconda (python3.5.4) 
-개발언어는 Python 3.5 버전을 사용하였습니다
-개발 패키지는 딥러닝에 필요한 수학 분야에 필요한 거의 모든 패키지(Numpy, SciPy, IPython 등)이 포함되어 있는 아나콘다 패키지를 사용하였습니다.
+개발언어는 Python 3.5 버전을 사용하였습니다. 
+개발 패키지는 딥러닝에 필요한 수학 분야 관련 거의 모든 패키지(Numpy, SciPy, IPython etc)가 포함되어 있어 아나콘다 패키지를 사용하였습니다.
 
   ##### 설치 방법
-   *  아나콘다 [홈페이지](https://www.anaconda.com/download/) 접속해서 운영체제에 맞는 패키지 설치 
+   *  아나콘다 [홈페이지](https://www.anaconda.com/download/) 접속해서 운영체제에 맞는 패키지 설치합니다.
    *  아나콘다 3.5버전 설치 후 Anaconda Prompt를 실행합니다.
   ##### 실행 예시
 * 아나콘다 가상환경 만들기
 	```
 	python -m pip install --upgrade pip
+	```
+	
+이어서 나오는 python 라이브러리를 다운받기위해 미리 pip 버전을  최신으로 업데이트 합니다.
+	
+	```
 	conda update -n base conda
+	```
+	
+아나콘다 패키지를 다운받기 위해서 conda 버전을 최신으로 업데이트 합니다.
+	
+	```
 	conda create --name [envName] python=3.5.4
 	conda info --envs
-	activate [envName]
 	```
+	
+아나콘다 가상환경을 만들어주어 독립된 개발환경을 만들어줍니다. python 버전은 3.5 이상으로 지정해줍니다.
+	
+	```
+	activate [envName]
+	
+	```
+가상환경을 활성화 시켜줍니다.
+
 #### Pycharm IDE
  jetBrains  Pycharm Community Edition 2017.3 버전을 사용하였습니다.
   ##### 설치 방법
    * 파이참 [홈페이지](https://www.jetbrains.com/pycharm/download/) 접속해서 운영체제에 맞는 Community 버전 Pycharm IDE 설치합니다.
   ##### interpreter 설치 방법
-   * 파이참 사용시 시스템에 사용된 라이브러리 설정 및 고유환경을 설정하기 위한 작업이 필요합니다
-> File -> settings ->Project -> Project interpreter 이동
-> 톱니바퀴 모양 add local 클릭
-> conda Environment -> Existing environment 선택 후 기존에 만들어 놓은 Anaconda 가상환경을 추가해줍니다. 
+   * 파이참 사용시 시스템에 사용된 라이브러리 및 고유환경을 설정하기 위한 작업이 필요합니다
+   
+File -> settings ->Project -> Project interpreter 이동합니다
+
+톱니바퀴 모양 add local 클릭합니다
+
+conda Environment -> Existing environment 선택 후 기존에 만들어 놓은 Anaconda 가상환경을 추가해줍니다. 
 
 
 
 
 
 #### 사물 인식 [YOLO Library](https://pjreddie.com/darknet/yolo/)
-  사물 인식기능을 구현을 위해 YOLO(in darknet)에서 문서 및 weight 파일을 가지고 기능을 구현했습니다.
+  사물 인식기능을 구현을 위해 YOLO(in darknet)에서 [문서](https://pjreddie.com/media/files/papers/YOLO9000.pdf) 및 [weight 파일](https://pjreddie.com/darknet/yolo/)을 가지고 기능을 구현했습니다.
   YOLO 버전 2 문서를 가지고 구현하였으며, weight 파일은 yolo을 사용하였습니다
   ##### 설치 방법
    * Cython 확장 기능을 구현합니다 (디렉토리 darkflow.net에 있는 flow.py의 있는 디렉토리에서 실행합니다)
@@ -182,25 +201,37 @@ mplayer -ao [파일명]
 ```
         conda install -c conda-forge/label/broken opencv 
         pip install opencv-python
-        pytesseract :  conda install -c jim-hart pytesseract
+```
+영상처리를 위한 필요 라이브러리 OpenCV를 설치합니다. 둘중에 하나를 선정하여 설치하시면 됩니다.
+
+```
         conda install -c anaconda tensorflow-gpu 
         pip install --ignore-installed --upgrade tensorflow-gpu
+```
+Object을 예측하기 위해 각 Layer 구현에 필수 라이브러리인 Tensorflow를 설치합니다 
+
+```
         conda install -c anaconda scipy
         conda install -c conda-forge matplotlib
         conda install -c conda-forge keras
 ```
+추가적인 필수라이브러리를 설치합니다
+
+
   ##### 실행 방법
   * 사물인식 데모 version 
     * CPU Version
-	```
+```
 flow --model cfg/yolo-new.cfg --load bin/yolo-new.weights --demo videofile.avi
-	```
+```
 
    * GPU Version
-	```
+
+```
 flow --model cfg/yolo-new.cfg --load bin/yolo-new.weights --demo videofile.avi --gpu 1.0
-	```
->웹캠 / 카메라를 사용하려면 videofile.avi 키워드를 camera로 바꾸기만 하면됩니다.
+```
+
+웹캠 / 카메라를 사용하려면 videofile.avi 키워드를 camera로 바꾸기만 하면됩니다.
 
   * Client/ Server version
     * Code/MainServer/Relumin/darkflow/net/Server.py 파일을 이용합니다.
@@ -229,7 +260,7 @@ def object_detection(img):
     
     print("보낸 문자 :" + resultString)
 ```
-
+입력 값으로 이미지를 넣어주며, 출력 값으로 이미지 속 추출 된 객체를 Client에게 보내주거나, 출력합니다.
 
 #### 텍스트 인식 [Tesseract OCR Engine]
 기본 엔진을 tesseract OCR로 하며, 이미지 속 텍스트의 인식률을 높이기 위해 전처리 과정으로 흑백필터, 노이즈 제거, AdaptiveThreshold 등을 거칩니다.
@@ -244,7 +275,7 @@ pip install pytesseract
 pip instal pillowl
 pip install image
 ```
-
+텍스트 분석을 위한 필수 라이브러리를 설치합니다.
 ##### 실행 예시
 ```
 import pytesseract
@@ -262,11 +293,11 @@ print(text)
 
 
 #### 감정 인식 [Emotion Detection using CNN]
-사물 인식기능을 구현하기 위해 fer2013/IMDB 데이터 셋을 사용하였으며, 케라스을 백앤드로 사용하여
+사물 인식기능을 구현하기 위해 [fer2013/IMDB](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) 데이터 셋을 사용하였으며, 케라스을 백앤드로 사용하여
   CNN 모델과 OpenCV를 사용하여 구현하였다.
 
   ##### 설치방법
-사물인식 설치패키지와 환경 동일
+사물인식 설치패키지와 환경 동일합니다.
 
   ##### 실행 방법
   * Client / Server version
@@ -315,9 +346,7 @@ def emotion_detection(img):
     
     print("보낸 문자 :" + emotion_text)
 	```
-
-
-
+입력 값으로 이미지를 입력하며, 출력 값으로는 사진 속 얼굴을 추출 후  얼굴표정을 비교하여 감정을 분석 후 결과를  client에게 보내거나, 출력합니다.
 
 
 ### API
@@ -354,10 +383,6 @@ Naver Clova CSS API는 Text to Speech 기능을 하기위해 사용합니다.
    위의 예시를 이용하여 TTS(Text To Speech)기능의 결과물인 ‘1111.mp3’가 생성됨을 알 수 있습니다.
 
 
-
-
-
-## 서버 운용 
 
 
 
