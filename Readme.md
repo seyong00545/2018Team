@@ -122,17 +122,39 @@ pacmd list-sink
 	```
 pacmd set-default-sink[index or name]
 	```
- 위의 과정들을 거치면 블루투스 이어폰으로의 사운드 송출은 가능한 상태이지만 프로파일이 headset 모드로 적용되어 음질이 상당히 떨어진다. 따라서 고음질을 제공하는 A2DP 모드로 변경시켜주어야 합니다.
+ 위의 과정들을 거치면 블루투스 이어폰으로의 사운드 송출은 가능한 상태이지만 프로파일이 headset 모드로 적용되어 음질이 상당히 떨어집니다. 따라서 고음질을 제공하는 A2DP 모드로 변경시켜주어야 합니다.
 * Headset mode는 양방향이지만 저음질을 지원하고 A2DP mode는 단방향이지만 고음질을 지원합니다.
 * A2DP 프로파일 변경 후 .mp3파일을 재생하기 위하여 설치하였던 mplayer를 이용하여 파일을 재생합니다.
-	```
+```
 pacmd set-card-profile bluez_card.[MAC주소] a2dp_sink
 mplayer -ao [파일명]
-	```
-
-
-
-
+```
+#### 라즈베리파이와 카메라 연동 방법
+* 라즈베리파이에서 카메라를 작동시키기 위해서는 OPEN CV 라이브러리가 필요합니다. 라즈베리파이 내 OPEN CV 라이브러리를 설치하기 전에 필요한 패키지들을 설치 해주어야 합니다.
+* 먼저 아래의 명령어로 C/C++ 컴파일러와 관련 라이브러리, make 같은 도구들이 포함되어 있는 build-essential 패키지를 설치해줍니다.
+```
+sudo apt-get install build-essential cmake pkg-config
+```
+* 또한 비디오 파일을 읽거나 캡처를 하기 위한 필요 패키지들을 아래의 명령어로 설치해줍니다.
+```
+sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libxvidcore-dev libx264-dev libxine2-dev
+sudo apt-get install libv4l-dev v4l-utils
+sudo apt-get install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+```
+* 위의 과정들을 거쳤다면, 이제 Open CV 설정과 컴파일 및 설치를 순서대로 다음 과정을 수행합니다.
+	1. mkdir open cv 후 cd opencv
+	2. wget -0 opencv.zip https://github.com/opencv/opencv/archive/3.4.3.zip 한 후 unzip opencv.zip
+	3. wget -0 opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.3.zip 한 후 unzip opencv_contrib.zip
+	4. cd opencv-3.4.3 한 후 build 디렉토리 생성 후 cmake 사용하여 컴파일 설정
+	
+* 이제 python 3.x에서 opencv 라이브러리를 사용 가능 한지를 다음 명령어로 결과를 확인합니다.
+```
+python
+>>>import cv2
+>>>cv2.__version__
+'3.4.0'
+```
 
 ### 윈도우(Windows)
   윈도우 운영체제는 window 10 Pro 버전을 사용합니다.
